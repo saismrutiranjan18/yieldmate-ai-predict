@@ -30,7 +30,7 @@ const Navbar = () => {
               <Brain className="h-6 w-6 text-primary-foreground" />
             </div>
             <span className="text-xl font-bold text-primary">
-              AgriAI
+              KrushiAI
             </span>
           </div>
 
