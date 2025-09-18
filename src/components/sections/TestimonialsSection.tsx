@@ -2,8 +2,10 @@ import React from 'react';
 import { Card } from '../ui/card';
 import { Star, Quote } from 'lucide-react';
 import farmerPortrait from '../../assets/farmer-portrait.jpg';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const TestimonialsSection = () => {
+  const { t } = useLanguage();
   const testimonials = [
     {
       name: 'Sarah Johnson',
@@ -49,11 +51,10 @@ const TestimonialsSection = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-primary mb-6">
-            What Farmers Say About Us
+            {t('testimonials.title')}
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Join thousands of satisfied farmers who have transformed their operations 
-            with our AI-powered agricultural solutions.
+            {t('testimonials.subtitle')}
           </p>
         </div>
 

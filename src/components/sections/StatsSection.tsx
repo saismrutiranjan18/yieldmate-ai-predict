@@ -1,7 +1,9 @@
 import React from 'react';
 import { TrendingUp, Users, Target, Award } from 'lucide-react';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const StatsSection = () => {
+  const { t } = useLanguage();
   const achievements = [
     {
       icon: TrendingUp,
@@ -35,11 +37,10 @@ const StatsSection = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Delivering Results Since 2020
+            {t('stats.title')}
           </h2>
           <p className="text-lg text-primary-foreground/80 leading-relaxed">
-            Our AI-powered solutions have transformed thousands of farms worldwide, 
-            delivering measurable improvements in crop yields and operational efficiency.
+            {t('stats.subtitle')}
           </p>
         </div>
 

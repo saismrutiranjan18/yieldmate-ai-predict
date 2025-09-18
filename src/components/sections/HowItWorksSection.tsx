@@ -1,35 +1,38 @@
 import React from 'react';
 import { Card } from '../ui/card';
 import { Database, Brain, Target, TrendingUp } from 'lucide-react';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const HowItWorksSection = () => {
+  const { t } = useLanguage();
+  
   const steps = [
     {
       step: 1,
       icon: Database,
-      title: 'Data Collection',
-      description: 'We gather comprehensive data from satellites, weather stations, soil sensors, and historical records to create a complete picture of your farm.',
+      title: t('howItWorks.dataCollection'),
+      description: t('howItWorks.dataCollectionDesc'),
       features: ['Satellite imagery', 'Weather data', 'Soil analysis', 'Historical yields']
     },
     {
       step: 2,
       icon: Brain,
-      title: 'AI Analysis',
-      description: 'Our advanced machine learning algorithms process millions of data points to identify patterns and correlations that affect crop growth.',
+      title: t('howItWorks.aiAnalysis'),
+      description: t('howItWorks.aiAnalysisDesc'),
       features: ['Pattern recognition', 'Predictive modeling', 'Risk assessment', 'Trend analysis']
     },
     {
       step: 3,
       icon: Target,
-      title: 'Predictions & Insights',
-      description: 'Get accurate yield predictions and personalized recommendations for optimal planting, irrigation, and harvest timing.',
+      title: t('howItWorks.predictions'),
+      description: t('howItWorks.predictionsDesc'),
       features: ['Yield forecasts', 'Optimization tips', 'Risk alerts', 'Best practices']
     },
     {
       step: 4,
       icon: TrendingUp,
-      title: 'Results & Monitoring',
-      description: 'Track your progress in real-time and continuously refine predictions based on actual outcomes for even better results.',
+      title: t('howItWorks.results'),
+      description: t('howItWorks.resultsDesc'),
       features: ['Performance tracking', 'Continuous learning', 'ROI monitoring', 'Success metrics']
     }
   ];
@@ -40,11 +43,10 @@ const HowItWorksSection = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-primary mb-6">
-            How Our AI Works
+            {t('howItWorks.title')}
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Our cutting-edge artificial intelligence system combines multiple data sources 
-            and advanced algorithms to deliver accurate predictions and actionable insights.
+            {t('howItWorks.subtitle')}
           </p>
         </div>
 
@@ -99,7 +101,7 @@ const HowItWorksSection = () => {
             <div className="w-3 h-3 bg-golden rounded-full"></div>
           </div>
           <p className="text-sm text-muted-foreground mt-4">
-            Continuous improvement through machine learning
+            {t('howItWorks.continuousImprovement')}
           </p>
         </div>
       </div>

@@ -2,8 +2,10 @@ import React from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Brain, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const FooterSection = () => {
+  const { t } = useLanguage();
   return (
     <footer id="contact" className="bg-gradient-primary text-primary-foreground">
       <div className="container mx-auto px-4 lg:px-8">
@@ -20,8 +22,7 @@ const FooterSection = () => {
               </span>
             </div>
             <p className="text-primary-foreground/80 leading-relaxed mb-6">
-              Revolutionizing agriculture with AI-powered crop yield prediction and optimization. 
-              Join thousands of farmers maximizing their harvest with data-driven insights.
+              {t('footer.description')}
             </p>
             <div className="flex space-x-4">
               <Facebook className="h-5 w-5 text-primary-foreground/60 hover:text-golden cursor-pointer transition-colors" />
@@ -33,7 +34,7 @@ const FooterSection = () => {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">AI Services</h3>
+            <h3 className="text-lg font-semibold mb-6">{t('footer.services')}</h3>
             <ul className="space-y-3">
               <li><a href="#" className="text-primary-foreground/80 hover:text-golden transition-colors">Yield Prediction</a></li>
               <li><a href="#" className="text-primary-foreground/80 hover:text-golden transition-colors">Weather Analytics</a></li>
@@ -59,7 +60,7 @@ const FooterSection = () => {
 
           {/* Contact & Newsletter */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Get In Touch</h3>
+            <h3 className="text-lg font-semibold mb-6">{t('footer.contact')}</h3>
             
             {/* Contact Info */}
             <div className="space-y-3 mb-6">
@@ -108,7 +109,7 @@ const FooterSection = () => {
         <div className="py-6 border-t border-primary-foreground/20">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-sm text-primary-foreground/80 mb-4 md:mb-0">
-              © 2024 AgriAI. All rights reserved. | Privacy Policy | Terms of Service
+              © 2024 AgriAI. {t('footer.rights')} | Privacy Policy | Terms of Service
             </div>
             <div className="text-sm text-primary-foreground/60">
               Powered by advanced machine learning algorithms

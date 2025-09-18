@@ -1,43 +1,46 @@
 import React from 'react';
 import { Card } from '../ui/card';
 import { Brain, CloudRain, Microscope, TrendingUp, Zap, Shield } from 'lucide-react';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const ServicesSection = () => {
+  const { t } = useLanguage();
+  
   const services = [
     {
       icon: Brain,
-      title: 'Yield Prediction',
-      description: 'Advanced AI algorithms analyze weather patterns, soil conditions, and historical data to predict crop yields with 95% accuracy.',
+      title: t('services.yieldPrediction'),
+      description: t('services.yieldPredictionDesc'),
       color: 'text-primary'
     },
     {
       icon: CloudRain,
-      title: 'Weather Analytics',
-      description: 'Real-time weather monitoring and predictive analytics help you make informed decisions about planting and harvesting.',
+      title: t('services.weatherAnalytics'),
+      description: t('services.weatherAnalyticsDesc'),
       color: 'text-blue-600'
     },
     {
       icon: Microscope,
-      title: 'Soil Analysis',
-      description: 'Deep learning models analyze soil composition, pH levels, and nutrient content to optimize fertilizer usage.',
+      title: t('services.soilAnalysis'),
+      description: t('services.soilAnalysisDesc'),
       color: 'text-amber-600'
     },
     {
       icon: TrendingUp,
-      title: 'Growth Optimization',
-      description: 'Get personalized recommendations for irrigation, fertilization, and pest control to maximize crop growth.',
+      title: t('services.growthOptimization'),
+      description: t('services.growthOptimizationDesc'),
       color: 'text-green-600'
     },
     {
       icon: Zap,
-      title: 'Smart Automation',
-      description: 'Integrate with IoT devices for automated irrigation, fertilization, and monitoring systems.',
+      title: t('services.smartAutomation'),
+      description: t('services.smartAutomationDesc'),
       color: 'text-purple-600'
     },
     {
       icon: Shield,
-      title: 'Risk Management',
-      description: 'Early warning systems for pest outbreaks, diseases, and extreme weather conditions to protect your crops.',
+      title: t('services.riskManagement'),
+      description: t('services.riskManagementDesc'),
       color: 'text-red-600'
     }
   ];
@@ -48,11 +51,10 @@ const ServicesSection = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-primary mb-6">
-            AI-Powered Agricultural Services
+            {t('services.title')}
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Transform your farming operations with cutting-edge artificial intelligence 
-            and machine learning technologies designed specifically for modern agriculture.
+            {t('services.subtitle')}
           </p>
         </div>
 
@@ -84,7 +86,7 @@ const ServicesSection = () => {
         <div className="text-center mt-16">
           <div className="inline-flex items-center px-6 py-3 bg-gradient-accent text-accent-foreground rounded-full font-medium hover:opacity-90 transition-opacity cursor-pointer">
             <Brain className="mr-2 h-5 w-5" />
-            Explore All AI Solutions
+            {t('services.exploreAll')}
           </div>
         </div>
       </div>

@@ -6,8 +6,10 @@ import { Label } from '../ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { Brain, MapPin, Calendar, Thermometer, Droplets, Target } from 'lucide-react';
 import { toast } from '../ui/use-toast';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const PredictionToolSection = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     cropType: '',
     location: '',
@@ -68,11 +70,10 @@ const PredictionToolSection = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-primary mb-6">
-            AI Prediction Tool
+            {t('prediction.title')}
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Get instant AI-powered predictions for your crops. Simply input your farm details 
-            and let our advanced algorithms provide accurate yield forecasts and optimization recommendations.
+            {t('prediction.subtitle')}
           </p>
         </div>
 
@@ -88,11 +89,11 @@ const PredictionToolSection = () => {
               {/* Crop Type */}
               <div>
                 <Label htmlFor="cropType" className="text-sm font-medium text-card-foreground mb-2 block">
-                  Crop Type *
+                  {t('prediction.cropType')} *
                 </Label>
                 <Select onValueChange={(value) => handleInputChange('cropType', value)}>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select your crop" />
+                    <SelectValue placeholder={t('prediction.selectCrop')} />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="wheat">Wheat</SelectItem>
@@ -122,12 +123,12 @@ const PredictionToolSection = () => {
               {/* Farm Size */}
               <div>
                 <Label htmlFor="farmSize" className="text-sm font-medium text-card-foreground mb-2 block">
-                  Farm Size (hectares) *
+                  {t('prediction.farmSize')}
                 </Label>
                 <Input
                   id="farmSize"
                   type="number"
-                  placeholder="Enter farm size"
+                  placeholder={t('prediction.enterSize')}
                   value={formData.farmSize}
                   onChange={(e) => handleInputChange('farmSize', e.target.value)}
                 />
@@ -150,11 +151,11 @@ const PredictionToolSection = () => {
               {/* Soil Type */}
               <div>
                 <Label htmlFor="soilType" className="text-sm font-medium text-card-foreground mb-2 block">
-                  Soil Type
+                  {t('prediction.soilType')}
                 </Label>
                 <Select onValueChange={(value) => handleInputChange('soilType', value)}>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select soil type" />
+                    <SelectValue placeholder={t('prediction.selectSoil')} />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="clay">Clay</SelectItem>
@@ -174,12 +175,12 @@ const PredictionToolSection = () => {
                 {isLoading ? (
                   <>
                     <div className="animate-spin rounded-full h-5 w-5 border-2 border-current border-t-transparent mr-2"></div>
-                    Analyzing...
+                    {t('prediction.analyzing')}
                   </>
                 ) : (
                   <>
                     <Target className="mr-2 h-5 w-5" />
-                    Generate AI Prediction
+                    {t('prediction.predictYield')}
                   </>
                 )}
               </Button>
